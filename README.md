@@ -1,7 +1,7 @@
 # Fullstack Express-React app written in TypeScript
 
 This is a starter kit for a fullstack application configured to use [Express](http://expressjs.com/) and [MongoDB](https://www.mongodb.com/) in the backend, and [React](https://reactjs.org/) in the frontend, all written in [TypeScript](https://www.typescriptlang.org/).
-The backend is built with [webpack](https://webpack.js.org/) (configuration inspired from [here](https://github.com/anthillsolutions/api-skel)), and the frontend was bootstraped with [create-react-app-typescript](https://github.com/wmonk/create-react-app-typescript).
+The frontend was bootstraped with [create-react-app-typescript](https://github.com/wmonk/create-react-app-typescript).
 
 ## Running it locally
 
