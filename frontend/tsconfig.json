@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "outDir": "build",
+    "baseUrl": ".",
+    "outDir": "dist",
     "allowJs": true,
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
@@ -8,10 +9,15 @@
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "importHelpers": true,
-    "jsx": "preserve",
-    "lib": ["dom", "es2015", "es2016", "es2017"],
+    "jsx": "react",
+    "lib": [
+      "dom",
+      "es2015",
+      "es2016",
+      "es2017"
+    ],
     "skipLibCheck": true,
-    "module": "esnext",
+    "module": "es2015",
     "moduleResolution": "node",
     "noEmitHelpers": true,
     "noImplicitReturns": true,
@@ -19,12 +25,19 @@
     "noImplicitAny": false,
     "strictNullChecks": false,
     "strict": true,
-    "target": "es2017",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true
+    "target": "es2017"
   },
-  "include": ["./src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.tsx", "**/*.test.tsx"],
-  "types": ["typePatches"]
+  "include": [
+    // "src/**/*.ts",
+    // "src/**/*.tsx",
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.tsx",
+    "**/*.test.tsx"
+  ],
+  "types": [
+    "typePatches"
+  ]
 }

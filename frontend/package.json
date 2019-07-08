@@ -1,58 +1,26 @@
 {
-  "name": "mern-ts-starter-frontend",
-  "version": "0.1.0",
+  "name": "leo-web",
+  "version": "1.0.0",
   "description": "Build react app with typescript.",
+  "postinstall": "tsc",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "postinstall": "yarn build",
-    "lint": "tslint -c ../tslint.json -p ./tsconfig.json",
-    "test": "react-scripts test --coverage --watchAll=false",
-    "test:watch": "react-scripts test --coverage --watchAll"
+    "dev": "tsc && webpack-dev-server",
+    "start": "tsc && webpack-dev-server -d --hot --config webpack.config.js --watch",
+    "build": "tsc",
+    "test": "jest",
+    "production": "NODE_ENV=production webpack -p --config webpack.config.prod.js",
+    "lint": "eslint src/**/**/*.ts && eslint src/**/**/*.tsx"
   },
-  "private": true,
-  "proxy": "http://localhost:9000",
-  "engines": {
-    "node": "8.* || >= 10.*",
-    "yarn": ">=1.*"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{ts,tsx}",
-      "!src/**/*.d.ts",
-      "!src/index.tsx",
-      "!src/serviceWorker.ts",
-      "!src/setupTests.ts"
-    ]
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
+  "author": "hyochan",
+  "license": "MIT",
   "dependencies": {
     "react": "^16.8.6",
-    "axios": "^0.19.0",
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
-    "styled-components": "^4.2.0",
-    "react-scripts": "^3.0.1"
+    "styled-components": "^4.2.0"
   },
   "devDependencies": {
-    "@types/app-shared-types": "link:../types",
-    "@types/enzyme": "^3.1.17",
-    "@types/enzyme-adapter-react-16": "^1.0.4",
-    "axios-mock-adapter": "^1.16.0",
-    "enzyme": "^3.8.0",
-    "enzyme-adapter-react-16": "^1.9.1",
-    "jest-localstorage-mock": "^2.4.0",
-    "tslint": "^5.16.0",
-    "typescript": "^3.4.5",
     "@babel/cli": "7.4.4",
     "@babel/core": "^7.4.5",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
@@ -77,6 +45,8 @@
     "@typescript-eslint/parser": "^1.9.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.8.0",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.0.0",
     "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.17.3",
@@ -85,14 +55,25 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-typescript": "^0.14.0",
     "expect": "^24.8.0",
+    "file-loader": "^4.0.0",
     "history": "^4.9.0",
     "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.8.0",
     "react-hot-loader": "^4.9.0",
     "react-test-renderer": "^16.8.6",
     "script-loader": "^0.7.2",
     "style-loader": "^0.23.1",
-    "ts-loader": "^6.0.1"
+    "ts-jest": "^24.0.2",
+    "ts-loader": "^6.0.1",
+    "typescript": "3.4",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.4.1"
   },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "resolutions": {
     "@types/react": "^16.0.40"
   }

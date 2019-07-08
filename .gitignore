@@ -23,3 +23,14 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+/dist
+node_modules
+
+.DS_Store
+node_modules/
+/dist/*
+!/dist/*.html
+!/dist/favicon.ico
+coverage/
+frontend/dist/
+
