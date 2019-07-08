@@ -1,25 +1,19 @@
-import React, { useContext } from 'react';
-import { render, hydrate } from 'react-dom';
-import { AppProvider as Provider, AppContext } from './providers';
+import React from "react";
+import "./App.css";
 
-import SwitchNavigator from './components/navigation/SwitchNavigator';
-
-const rootElement = document.getElementById('app') as HTMLElement;
-
-const Component = () => (
-  <Provider>
-    <SwitchNavigator />
-  </Provider>
-);
-
-const renderApp = () => {
-  if (rootElement.hasChildNodes()) {
-    hydrate(<Component />, rootElement);
-  } else {
-    render(<Component />, rootElement);
-  }
+const App: React.FC = () => {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <p>
+          Edit <code>src/App.tsx</code> and save to reload.
+        </p>
+        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 };
 
-renderApp();
-
-if (module.hot) module.hot.accept(['./components/navigation/SwitchNavigator'], () => renderApp());
+export default App;
