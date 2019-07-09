@@ -17,6 +17,7 @@
     "removeComments": true,
     "alwaysStrict": true,
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "typeRoots": ["node_modules/@types"],
     "paths": {
       "*": ["node_modules/@types/*", "./server/types/*"]

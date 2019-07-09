@@ -1,21 +1,23 @@
 import express from "express";
 import bodyParser from "body-parser"; // pull information from HTML POST (express4)
 import createError, { HttpError } from "http-errors";
-// import { allRoutes } from "./routes";
 import { RegisterRoutes } from "./routes";
-import { logger } from "./logger/logger";
 import "./controllers/UserController";
-import * as swaggerUi from "swagger-ui-express";
+import { serve, setup } from "swagger-ui-express";
+import config from "./config/app";
+import logger from "./utils/Logger";
+// const swaggerDocument = require("../build/swagger.json");
+import swaggerDocument from "../build/swagger.json";
 
 class App {
   public app: express.Express;
 
   constructor() {
     this.app = express();
-    this.config();
+    this.setup();
   }
 
-  private config(): void {
+  private setup(): void {
     this.app.use(
       bodyParser.urlencoded({
         extended: true,
@@ -24,35 +26,19 @@ class App {
 
     this.app.use(bodyParser.json());
 
-    // We are an API so we do not need to set up default views
-    // TODO - remove ejs from Build
-    // this.app.set("views", path.join(__dirname, "views"));
-    // this.app.set("view engine", "ejs");
-    // this.app.use(express.static(__dirname +'./../../'));
-    // Serve static files from the React app
-    // this.app.use(express.static(path.join(__dirname, "client/build")));
-
-    // Route order is IMPORTANT
-    // this.app.use(allRoutes);
-
     RegisterRoutes(this.app);
 
-    try {
-      const swaggerDocument = require("../swagger.json");
-      this.app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-    } catch (err) {
-      logger.log("Unable to load swagger.json", err);
-    }
+    this.app.use(config.swagger, serve, setup(swaggerDocument));
 
     // catch 404 and forward to error handler
-    this.app.use((req, res, next) => {
+    this.app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
       next(createError(404));
     });
 
     // error handler which is a middleware
-    this.app.use((err: HttpError, req: express.Request, res: express.Response, next: Function) => {
+    this.app.use((err: HttpError, req: express.Request, res: express.Response, next: express.NextFunction) => {
       // set locals, only providing error in development
-
+      logger.error(err);
       res.locals.message = err.message;
       res.locals.error = req.app.get("env") === "development" ? err : "Some error ocurred";
       // Util has a method that can convert an error to String for Json conversion
