@@ -2,12 +2,13 @@ import express from "express";
 import bodyParser from "body-parser"; // pull information from HTML POST (express4)
 import createError, { HttpError } from "http-errors";
 import { RegisterRoutes } from "./routes";
-import "./controllers/UserController";
 import { serve, setup } from "swagger-ui-express";
 import config from "./config/app";
 import logger from "./utils/Logger";
 // const swaggerDocument = require("../build/swagger.json");
 import swaggerDocument from "../build/swagger.json";
+
+import "./controllers/UserController";
 
 class App {
   public app: express.Express;
