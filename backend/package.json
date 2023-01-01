@@ -52,12 +52,12 @@
     "prettier": "^1.16.1",
     "supertest": "^4.0.2",
     "ts-jest": "^24.0.2",
-    "ts-loader": "^3.2.0",
+    "ts-loader": "^9.4.2",
     "ts-node": "^8.0.1",
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.17.0",
     "typescript": "^3.2.4",
-    "webpack": "^3.9.1"
+    "webpack": "^5.75.0"
   },
   "scripts": {
     "start": "webpack --watch",
