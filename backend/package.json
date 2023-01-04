@@ -57,7 +57,7 @@
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.17.0",
     "typescript": "^3.2.4",
-    "webpack": "^3.9.1"
+    "webpack": "^5.75.0"
   },
   "scripts": {
     "start": "webpack --watch",
